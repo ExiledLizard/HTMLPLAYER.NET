@@ -1,0 +1,1085 @@
+<link rel="icon" href="https://htmlplayer.net/images/Site_Icon.png">
+
+<title>HTML Player</title>
+
+<body style="background: linear-gradient(to bottom, white, #808080);"> 
+
+<meta name="description" content="This is HTMLPLAYER.NET! Its a site that allows you to make website pages via HTML editor.">
+
+<div onclick="this.style.opacity='0'" class="alert alert-danger" style="user-select:none; opacity:1; transition:1s; position:absolute; width:500;display:none">
+<b>Site Under Development (CSS/Feature Enhancement)</b>
+<hr>
+
+<p>This site is currently under development, so its functionality will be <b class="text-warning">limited</b>/<b class="text-danger">interupted</b>. The site will be back as soon as possible, sorry for any inconvenience! Click this alert to dismiss it.</p>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7111169946916013" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.2/ace.js" integrity="sha512-yjhIcftV1KZyd3rLPujicRV6NpFEuCqQaOBBdrey6vFdU1zVkJYgJf9a+15YrOuzzSXYNV2GU4xdQ8Xy9Zj/fA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+<div style="text-align:center">
+<span><svg data-toggle="tooltip" data-bs-html="true" title="Click to <u>open a menu</u> containing <b>credits</b> and <b>other sources</b>..." data-bs-target="#uModal" data-bs-toggle="modal" style="color:gray" onmouseover="this.style.color='skyblue'" onmouseout="this.style.color='gray'" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+</svg> <span style="color:transparent; user-select:none">---</span></span><h style="color:gray; font-size:40;font-family:sans-serif;" data-toggle="tooltip" data-bs-placement="bottom" title="Developed with love!">Simple Live HTML Editor & Player </h><span data-toggle="tooltip" title="Click for changelog." data-bs-target="#cModal" data-bs-toggle="modal" style="color:blue; font-size:30"><b style="color:black"> - </b><u style="color:blue">v1.1.8</u></span>
+</div>
+
+
+<!-- Site Element Loading Progress Menu/Display -->
+<div class="d-flex justify-content-center">
+
+<div id="loadingMenu" class="alert alert-secondary" style="position:fixed; bottom:70%">
+
+<h1 style="text-align:center">Loading Site Elements</h1>   
+
+<p style="text-align:center; font-size:19">HTML elements of this page are loading...</p>
+
+<div class="d-flex justify-content-center">
+<progress id="loadingBar" value="" max="2" class="progress is-info" style="width: 75%"></progress>
+</div>
+
+<p id="loadingText" style="text-align:center">Loading element <b id="loadedElements">0</b> of <u id="totalElements">1</u>...</p>
+
+</div>
+    
+</div>
+
+
+<!-- Credits & Sources Modal -->
+<div class="modal fade" id="uModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal-dialog">
+  
+<div class="modal-content">
+
+<div class="modal-header">
+<h4>Credits and Sources</h4><span class="btn btn-close" data-bs-dismiss="modal" data-toggle="tooltip" data-bs-html="true" title="Click to <b>close</b> this menu." data-bs-placement="left"></span>
+</div>
+ 
+<div class="modal-body">
+    
+<p style="font-weight:bold; text-align:center; font-size:20">Credits</p>
+<p style="color:gray; text-align:center">Thanks to the following <b>CDNs</b>, that make my site's <u>animations</u>, <u>CSS</u>, and other features a thing (!):</p>
+<p></p>
+
+<p style="font-weight:bold; text-align:center; font-size:20">No 1. Bootstrap</p>
+
+<div style="text-align:center;">
+<img data-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Bootstrap</b>'s site." data-bs-placement="right" style="width:25%" height="25%" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" onclick="playUISound(), window.location.href='https://getbootstrap.com'">
+</div>
+
+<p></p>
+
+<p style="color:gray; text-align:center"><a data-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Bootstrap</b>'s site." data-bs-placement="right" href="https://getbootstrap.com">Bootstrap</a> is a modern CDN, allowing developers to make their site's styling better, add components like this menu (tooltips, dropdowns, modals, e.t.c) to their UIs, and more. Click the image, or link in this text, to get redirected to this CDN's site.</p>
+
+<p></p>
+
+<p style="font-weight:bold; text-align:center; font-size:20">No 2. Bulma</p>
+
+<div style="text-align:center">
+<img data-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Bulma</b>'s site." data-bs-placement="right" onclick="window.location.href='https://bulma.io'" width="75%" height="50%" src="https://htmlplayer.net/images/Bulma_Ref.png">
+</div>
+
+<p></p>
+<p style="text-align:center; color:gray"><a data-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Bulma</b>'s site." data-bs-placement="right" href="https://bulma.io">Bulma</a> is like Bootstrap, but it's animations, features, and other aspects are different. Click the image, or link in this text, to redirect to Bulma's site.</p>
+
+<p></p>
+
+<p style="font-weight:bold; text-align:center; font-size:20">No 3. Popper</p>
+
+<div style="text-align:center">
+<img  data-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Popper</b>'s site." data-bs-placement="right" width="30%" height="30%" src="https://htmlplayer.net/images/Popper_Logo.png" onclick="window.location.href='https://popper.js.org/'">    
+</div>
+
+<p></p>
+
+<p style="color:gray; text-align:center"><a data-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Popper</b>'s site." data-bs-placement="right" href="https://popper.js.org">Popper</a>, is a CDN that allows developers to add many types of toolips, popovers, floating UIs, and e.t.c to their sites' elements (for example, a little square appears, containing developer-specified information about an element your mouse is hovered over). Click the image, or link in this text to redirect to their main site.</p>
+
+<p></p>
+
+<p style="font-weight:bold; text-align:center; font-size:20">No 4. Ace (The Editor Window)</p>
+
+<div style="text-align:center">
+<img width="30%" height="30%" src="https://ace.c9.io/doc/site/images/ace-logo.png" onclick="window.location.href='https://ace.c9.io'" data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to get <u>redirected</u> to <b>Ace</b>'s site.">    
+</div>
+
+
+
+<p></p>
+
+<p style="color:gray; text-align:center"><a href="https://ace.c9.io" data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to get <u>redirected</u> to <b>Ace</b>'s site.">Ace</a>, is a embeddable (via CDN, e.t.c) web-based code editor, that supports many programming languages (30+). It is very customizable (programming language, theme, e.t.c) with JavaScript. Click the image, or link in this text, to be redirected to the CDN's site.</p>
+
+<hr>
+
+
+<p style="font-weight:bold; text-align:center; font-size:20">My Other Sources</p>
+<p style="text-align:center; color:gray">The following links lead to my other sources: <a data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to redirect to my <b>donation</b> page." href="https://ko-fi.com/exiledlizard635">Donate (Ko-Fi)</a>, <a data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to redirect to a page containing <b>Minecraft mods</b> (by me, on <i>Modrinth</i>) for the <u>Fabric Loader</u>." href="https://modrinth.com/user/ExiledLizard635">Modrinth</a>, <a data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to redirect to a page containing <b>Minecraft mods</b> (by me, on <i>Curseforge</i>) for the <u>Fabric Loader</u>." href="https://www.curseforge.com/members/exiledlizard635/projects">Curseforge</a>, <a data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to redirect to a page containing <b>Minecraft content</b> (<u>Resource Packs</u>, <u>Worlds</u>, e.t.c). Note that the page's website is: <u>https://planetminecraft.com</u>." href="https://www.planetminecraft.com/member/sandwhoop/">Planet Minecraft</a>, and <a data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="Click to redirect to a page, that contains more links to <b>small web pages</b>, made by me (<u>single HTML files</u>)." href="https://pastebin.com/u/SandWhoop?guest=1">Pastebin</a>.</p>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal">Close Menu</button>    
+</div>
+
+</div> 
+    
+</div>  
+    
+</div>
+</div>    
+
+
+
+<!-- Changelog Modal -->
+<div class="modal fade" id="cModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+ <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+     <h4 class="modal-title">Changelog of Htmlplayer.net</h4> 
+     <button type="button" class="btn-close" data-bs-dismiss="modal" data-toggle="tooltip" data-bs-html="true" title="Click to <b>close</b> this changelog." data-bs-placement="auto"></button>
+     </div>
+     <div class="modal-body">
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.8 - <span class="badge bg-success" data-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="The <b>latest</b> version of <u>https://htmlplayer.net</u>.">Latest</span></p>
+    <p style="color:gray; text-align:center">Added a <b>counter</b>, that represents how many users/clients <u>loaded</u> the page. <i>Thanks to <a href="https://count.getloli.com">Moe Counter</a> for the counter element.</i></p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+    
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.7</p>
+    <p style="color:gray; text-align:center"><b>Enhanced</b> the text under the "Introduction" and "Usage" titles, by adding nice-looking <b>backgrounds</b> behind the text. Also, added a client <b>welcoming notification</b>, when a user loads the site.</p>
+
+    <p style="color:transparent; user-select:none">_</p>
+
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.6</p> 
+    <p style="color:gray; text-align:center">Added a <b>display</b>, that shows the progress of how many HTML elements loaded on the site, of the total amount. The loading progress is indicated with a <b>progress bar</b> and <b>text</b>.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+    
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.5</p> 
+    <p style="color:gray; text-align:center">Added an <b>info</b> button to the left of the title text of the site, that allows access to CDN credits, and external sources (donation, e.t.c).</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.4</p> 
+    <p style="color:gray; text-align:center">Added a button that allows you to <u>resize</u> the <b>Editor Window</b>.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+    
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.3</p> 
+    <p style="color:gray; text-align:center">Added a nice gradient to the whole site background, increasing the style quality of the site.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+    
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.2</p> 
+    <p style="color:gray; text-align:center">Updated title looks (Introduction, Usage, Editor, e.t.c), so they look better (via <a href="https://www.getbootstrap.com">Bootstrap</a> CDN). Also, re-updated char meter bar, using the <a href="https://www.bulma.io">Bulma</a> CDN.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.1</p> 
+    <p style="color:gray; text-align:center">Updated changelog contents from showing in an alert() (JavaScript feature), to this nice display. Also, added <b>4</b> whole pages to the redirection dropdown menu (on right of title).</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+    
+    <p style="font-weight:bold; text-align:center; font-size:20">1.1.0</p>
+    <p style="color:gray; text-align:center">Updated the text near the progress bar (char meter), so its font looks better (Source Code Pro). Also, fixed Source Code Pro font issues, so it can now render correctly.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.9</p>
+    <p style="color:gray; text-align:center">Added sound effects to the Editor Options buttons.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.8</p>
+    <p style="color:gray; text-align:center">Added a button that toggles the theme of the Editor (Light, Dark, or Auto). Also, in this version, the Auto Complete button has been removed, due to the Ace Editor window having a fully-functional auto-complete feature for completing HTML tags (adding the closing tag once you are done typing the opening tag), which is very convenient.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.7 <span class="badge bg-danger rounded-pill">Biggest Update (So Far)</span></p>
+    <p style="color:gray; text-align:center">Made the Editor window <i>not</i> a TEXTAREA element anymore, and made it a DIV, so it is an editor called <a href="https://ace.c9.io/">Ace</a> (a popular web-based coding editor).</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.6</p>
+    <p style="color:gray; text-align:center">Added a SELECT dropdown (right of site header text), that allows you to select another page that is within htmlplayer.net, and redirect to it. This version also includes text above this SELECT element, that informs the user that they can switch pages there, and shows how many pages are available at the time.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.5</p>
+    <p style="color:gray; text-align:center">Added tooltips to elements (like Buttons, Paragraphs, Dropdowns, and Divs).</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.4</p>
+    <p style="color:gray; text-align:center">Added CSS styling to the buttons under the Editor Window, via the <a href="https://getbootstrap.com/">Bootstrap</a> CDN.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.3</p>
+    <p style="color:gray; text-align:center">Added a bar that indicates the current amount of characters of the max amount (25,000,000 characters). This version also adds a character count meter, that represents the values of the bar (original v1.0.1 character counter <b>removed</b>).</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.2</p>
+    <p style="color:gray; text-align:center">Added button to change font of HTML editor.</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.1</p>
+    <p style="color:gray; text-align:center">Added character counter, that measures total character count in HTML editor (spaces included).</p>
+    
+    <p style="color:transparent; user-select:none">_</p>
+
+    <p style="font-weight:bold; text-align:center; font-size:20">1.0.0</p>
+    <p style="color:gray; text-align:center">Initial release of htmlplayer.net.</p>
+    
+
+    
+    
+    
+    </div>
+  
+    <div class="modal-footer">
+    <button data-bs-target="#cModal" data-bs-dismiss="modal" class="btn btn-secondary" data-toggle="tooltip" data-bs-placement="right" title="You know what this does...">Close Changelog</button>
+    </div>
+  
+  </div> 
+ </div>    
+</div>
+
+
+
+
+
+
+
+
+
+
+<p style="text-align:center;font-size:25;font-family:sans-serif;">Today's Date: <span  data-toggle="tooltip" data-bs-placement="bottom" data-bs-title="This is today's date." id="dateDisplay" class="badge rounded-pill text-bg-secondary"></span></p> 
+
+<p style="position:absolute; right:1%; top:1%; color:black"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-square" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+</svg><i>Other Pages @ htmlplayer.net</i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-square" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+</svg> - <b class="badge rounded-pill text-bg-primary" data-toggle="tooltip" title="This is the number of available pages htmlplayer.net provides." data-bs-placement="bottom" id="myPagesCounter"></b> Page(s) available.</p>
+
+<select id="myPages" style="width:250; position:absolute; right:5%; top:5%" data-toggle="tooltip" data-bs-placement="bottom" title="Select one of htmlplayer.net's other pages to redirect to." class="form-select text-primary">
+<option title="Choose a page to redirect to by clicking an option from this dropdown menu.">Choose Page (Redirect)...</option>
+<option>Minecraft Mod Search Page</option>
+<option>Website Preview Page</option>
+<option>Video Preview Page</option>
+<option>Image Preview Page</option>
+<option>Audio Preview Page</option>
+<option>Google Query Redirect Page</option>
+<option>Youtube Query Redirect Page</option>
+<option>Wikipedia Query Redirect Page</option>
+<option>Random Number Generation Page</option>
+<option>E-mail Creation Page</option>
+<option>Simple Calculator Page</option>
+<option>Time Utility Page</option>
+<option>Text Editor Page</option>
+</select>
+
+<hr>
+
+<p style="color:transparent; user-select:none">_</p>
+<p style="color:transparent; user-select:none">_</p>
+
+<div class="d-flex justify-content-center"><p style="font-size:30" class="badge bg-secondary">Site Visits (Total)</p></div>
+
+<p style="color:transparent; user-select:none">_</p>
+
+<div style="text-align:center">
+<img onload="updateLoadingBar()" src="https://count.getloli.com/@stcntt?name=stcntt&theme=3d-num&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto" data-toggle="tooltip" data-bs-html="true" title="This number represents the count of how many users/clients <b>loaded this website</b>. Thanks to <b>Moe Counter</b> for this counter! <b>Click</b> this counter to get <u>redirected</u> to their site." onclick="window.location.href='https://count.getloli.com/'" style="cursor:pointer">    
+</div>
+
+<p style="color:transparent; user-select:none">_</p>
+<p style="color:transparent; user-select:none">_</p>
+
+<div class="d-flex justify-content-center">
+<p style="text-align:center;font-size:30" class="badge bg-primary">Introduction</p>
+</div>
+
+<div class="d-flex justify-content-center">
+<p style="background-color:lightgray;border-radius:7px;width:50%;text-align:center">Welcome to this site! What this site allows you to do, is create websites like this one, using whatever inputted HTML code there is in the <b>Editor</b> (the <b>Top Box</b>). The code from the <b>Editor</b> gets transfered into the <b>Player</b> (the <b>Bottom Box</b>), and is displayed as HTML elements.</p>
+</div>
+
+<p style="color:transparent; user-select:none">.</p>
+
+<div class="d-flex justify-content-center">
+<p style="text-align:center;font-size:30" class="badge bg-success">Usage</p>
+</div>
+
+<div class="d-flex justify-content-center">
+<p style="background-color:lightgray;border-radius:7px;width:50%;text-align:center">To use this site, you simply need to input HTML code into the <b>Editor</b>. Once you input valid HTML code into the <b>Editor</b>, the outputted HTML elements will show in the <b>Player</b>. Don't know how to code in HTML? Click <a style="color:green" data-toggle="tooltip" data-bs-placement="bottom" onclick="notifyRedirect()" title="This link will redirect you to one of Mosh's many coding tutorials, specifically, to a 1h+ long HTML & CSS tutorial." href="https://www.youtube.com/watch?v=qz0aGYrrlhU">here</a>, for a HTML tutorial - happy coding!</p>
+</div>
+
+
+<p style="color:transparent; user-select:none">_</p>
+
+<div style="text-align:center">
+
+
+
+
+<span style="color:black;font-size:40" data-toggle="tooltip" data-bs-placement="auto" data-bs-html="true" title="The Editor is your coding space. <b>IMPORTANT</b>: Make sure to add '<u>px</u>', or '<u>%</u>' to element's <i>width</i>/<i>height</i> style, or the element within the player <b>won't</b> resize!" class="badge bg-light">Editor</span>
+<p style="color:gray;font-size:22.5" id="Counter"></p>
+<div style="text-align:center" class="d-flex justify-content-center"><progress data-toggle="tooltip"  class="progress is-info" data-bs-placement="left" max="25000000" data-bs-html="true" data-bs-original-title="This bar represents the amount of characters that are in the Editor, out of the max (25,000,000 characters). <b>NOTE</b>: If you reach <b>25 million</b> characters, you may keep typing, there are no limitations. The reason why there is a bar and text, is to show you when you will reach an unstable amount of characters, which may cause the page to 'Aw Snap!' (based on your device's specs). When any page 'Aw Snap's, all inputted data is lost, unless automatically backed-up to the server." style="width:25%" value="" id="charMeter"></progress> <span id="CharText" style="font-family: Source Code Pro"></span></div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div id="editor" style="width:1250;height:400;border-radius:7px; transition: 0.5s"></div>
+</div>
+
+<p style="color:transparent">_</p>
+<p style="color:transparent">_</p>
+
+<div class="d-flex justify-content-center">
+<p style="color:grey;font-size:30" class="badge bg-info rounded-pill" data-toggle="tooltip" data-bs-html="true" title="<i>Configure the Editor & more...</i>" data-bs-placement="right">Editor Options</p>
+</div>
+
+<p></p>
+
+<button class="btn btn-danger" id="clearButton" data-toggle="tooltip" data-bs-placement="bottom" onclick="clearEditor(),playUISound()" data-bs-html="true" data-bs-title="<p>Click this button if you wish to <b>clear</b> the Editor window. Be <b>careful</b>.</p>">Clear Editor <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+</svg></button><span style="user-select:none;color:transparent"> | </span><button class="btn btn-info" onclick="Download(),playUISound()" data-bs-html="true" data-bs-title="You can <b>download</b> the code that is inputted into the Editor window. Click to <b>download</b>." data-toggle="tooltip" data-bs-placement="bottom" id="downloadButton">Download Code <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg></button> <span style="user-select:none;color:transparent"> | </span> <button class="btn btn-primary" data-toggle="tooltip" data-bs-placement="bottom" id="Code In New Tab!" data-bs-html="true" data-bs-title="To preview inputted  HTML code in a <b>full page</b>, click this button." onclick="displayCodeInNewTab(), playUISound()">Display HTML Content In New Tab <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z"/>
+</svg></button> <span style="user-select:none;color:transparent"> | </span> <button id="themeChangeButton" class="btn btn-secondary" data-toggle="tooltip" data-bs-placement="bottom" title="Click this button to set the Editor's theme to: Light, Dark, or AUTO (changes theme based on client theme)." onclick="changeEditorTheme(),playUISound()">Editor Theme: AUTO</button> <span style="color:transparent;user-select:none"> | </span><button class="btn btn-success" id="fontChange" onclick="changeEditorFont(),playUISound(), console.log('[User]: New feature request!')" data-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Click this button to change the Editor's text font.">Font: Default/Browser</button> <span style="user-select:none;color:transparent"> | <button onclick="copyEditorString(),playCopySound()" id="copyEditorContentButton" data-clipboard-text="" data-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Click to copy Editor content to clipboard." class="btn btn-warning">Copy Editor Content <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
+</svg></button></span><span style="color:transparent; user-select:none"> | </span> <button onclick="openWindow(), playUISound()" data-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="Click this button if you want to <u>change</u> the dimensions (width, and/or height), of the <b>Editor Window</b>." class="btn btn-light">Resize Editor <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+</svg></button>
+
+
+
+
+
+
+<p style="color:transparent">_</p>
+<p style="color:transparent">_</p>
+
+<div class="d-flex justify-content-center">
+<p style="font-size:40" data-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom" title="The player is where your code is <b>outputted</b> as <u>actual HTML elements</u>." class="badge bg-success">Player</p>
+</div>
+
+<p></p>
+
+<div style="background-color:white; width:1500; height:750px;margin: 0 auto; border-radius:7px">
+<iframe onload="updateLoadingBar()" id="Player" style="width:1500px; height:750px; border-radius: 7px; margin: 0 auto;" srcdoc="<p style='color:green; text-align:center;'>Hello, World! Try to edit me!</p>"></iframe>
+</div>
+
+<div style="height:50"></div>
+
+<div class="d-flex justify-content-center">
+<div id="copiedNotification" style="display:none;position:fixed;bottom:5%;"  data-toggle="tooltip" data-bs-placement="bottom" title="This message disappears 5 seconds after showing up." class="alert alert-warning">
+<p style="font-size:27;user-select:none">Editor Content Copied to Clipboard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+  <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+</svg></p>    
+
+<hr>
+
+<p style="user-select:none">The content inside the <b>Editor Window</b> has been <b style="color:green">successfully</b> copied to your clipboard!</p>
+    
+</div>
+</div>
+</div>
+
+<div class="d-flex justify-content-center">
+<div class="alert alert-primary" style="position:fixed; bottom:5%;display:none" id="changeSizeAlert">
+
+<p style="font-size:27; user-select:none; text-align:center">Resize Editor <button id="setButton" onclick="setEditorDimensions()" class="btn btn-primary rounded-pill">Set Dimensions</button> <button style="position:absolute; right:2%" class="btn btn-close" onclick="bootstrap.Tooltip.getInstance(this).hide(), closeWindow(), playUISound()" data-toggle="tooltip" data-bs-placement="right" data-bs-html="true" title="<b>Close</b> this menu, and <u>discard</u> inputs."></button></p>
+<p style="user-select:none">Please input dimensions that you want to set <b>Editor Window</b> to, via input boxes below.</p>
+<hr>
+<p></p>
+
+<p style="user-select:none; text-align:center">Width (Min: <b>1250</b>px, Max: <b>2000</b>px)</p>
+   
+   <div style="text-align:center">
+   <input class="form-control" type="number" placeholder="Enter width..." id="widthInput">       
+   </div>
+   
+   <p></p>
+   
+   <p style="user-select:none; text-align:center">Height (Min: <b>400</b>px, Max: <b>1000</b>px)</p>
+   
+   <div style="text-align:center">
+   <input class="form-control" type="number" placeholder="Enter height..." id="heightInput">       
+   </div>
+   
+</div>    
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    
+    //We define the error sound...
+    var Error_Sound = new Audio("https://htmlplayer.net/sounds/Error.mp3");
+    
+    //We define our Editor dimension size changer window with some variables...
+    var Dimension_Change_Window = document.getElementById("changeSizeAlert");
+    var Width_Input = document.getElementById("widthInput");
+    var Height_Input = document.getElementById("heightInput");
+    var Set_Button = document.getElementById("setButton");
+    
+    //We define the Editor's placeholder text stages...
+    var Placeholder_Stage = 0;
+    
+    
+    //We define the text that will be changed of its color, and the color variable...
+    var The_Text = document.getElementById("Cool Text");
+    var Color = 0;
+    
+    //We define the progress bar (it displays how many characters are there, before reaching an unstable amount). We also define the text that is next to the bar.
+    var Character_Bar = document.getElementById("charMeter");
+    var Character_Text = document.getElementById("CharText");
+
+    
+    //We define the Player's character counter...
+    var Editor_Counter = document.getElementById('Counter');
+    
+    
+    //We define the name of the site...
+    var Title = document.getElementById("Title!");
+
+    
+    //We define a download link...
+    var downloadLink = document.createElement('a');
+ 
+ 
+    //We define the paragraph element (the Date Display)...
+    var dateDisplay = document.getElementById("dateDisplay");
+   
+   
+    //We define the 5 buttons of the Editor!
+   
+    //We define the toggle Auto Complete button...
+    var Auto_Complete_Button = document.getElementById("Auto_Complete!");
+   
+    //We define the Clear button...
+    var Clear_Button = document.getElementById("clearButton");
+   
+    //We define the Download button...
+    var Download_Button = document.getElementById("downloadButton");
+   
+    //We define the Button that opens a new tab with the code content...
+    var Code_In_New_Tab_Button = document.getElementById("Code In New Tab!");
+    
+    //We define the button that changes the font of the inputted text in the editor...
+    var Font_Button = document.getElementById("fontChange");
+    
+    //We define the button that copies the user-generated string in the editor to the current user's clipboard...
+    var Copy_Button = document.getElementById("copyEditorContentButton");
+     
+    //We define a Bootstrap alert that pops up on the screen, showing the user that their code (in the Editor Window) has been copied.
+    var Copy_Alert = document.getElementById("copiedNotification");
+    
+    //We define the select tag that redirects users to the site they selected, and the counter that shows how many options/sites there are in the selection.
+    var Page_Selection_Counter = document.getElementById("myPagesCounter");
+    var Page_Selection = document.getElementById("myPages");
+    
+    //We define the Editor & Player Windows...
+    var Editor_Window = document.getElementById("editor");
+    var Player_Window = document.getElementById("Player");
+   
+    //We define the font stage numbers...
+    var Font = 1;
+    
+    //We define the number that is responsible for changing the Editor's theme (light, dark, or auto).
+    var Theme = 0;
+    
+    //We define the button that triggers the function (mentioned above).
+    var Theme_Button = document.getElementById("themeChangeButton");
+    
+    //We define the variable that allows the auto theme mode to update automatically.
+    var autoTheme = 1;
+    
+    //We define sounds that play when users click buttons on the site.
+    var UI_Sound = new Audio("https://htmlplayer.net/sounds/UI_Sound_Click.mp3")
+    var Copy = new Audio("https://htmlplayer.net/sounds/Copy_Done.mp3");
+    
+    //We define the loading screen's element vars...
+    var Loading_Menu = document.getElementById("loadingMenu");
+    var Loading_Bar = document.getElementById("loadingBar");
+    var Loading_Text = document.getElementById("loadingText");
+    var Current_Loaded = document.getElementById("loadedElements");
+    var Total_Elements = document.getElementById("totalElements");
+   
+    //Control The Loading Display Function (VAR).
+    var Loaded = false;
+   
+    //We initialize the Ace editor...
+    var editor = ace.edit("editor", { 
+            theme: "ace/theme/textmate", 
+            mode: "ace/mode/html", 
+            fontSize: "14px", 
+            wrap: true 
+        });
+    
+   editor.setOption("showPrintMargin", false);
+    
+    
+    //Functions that add functionality to the Editor dimension size changer GUI...
+    function openWindow(){
+    Dimension_Change_Window.style.display = "block";    
+    }
+   
+    function closeWindow(){
+    Dimension_Change_Window.style.display = "none";
+    Width_Input.value = "";
+    Height_Input.value = "";
+    }
+   
+    
+    function setEditorDimensions(){
+     if(Width_Input.value > 1249 && Width_Input.value < 2001 && Height_Input.value > 399 && Height_Input.value < 1001){
+        
+    
+        Set_Button.textContent = "Dimensions Set!";
+        Editor_Window.style.width = Width_Input.value;
+        Editor_Window.style.height = Height_Input.value;
+        Width_Input.value = "";
+        Height_Input.value = "";
+        setTimeout(() => {
+        Set_Button.textContent = "Set Dimensions";
+        closeWindow();
+        Set_Button.textContent = "Set Dimensions";
+        }, 500);
+        
+        
+     }else{
+        Set_Button.textContent = "Invalid Inputs";
+        Error_Sound.play();
+        setTimeout(() => {
+        Set_Button.textContent = "Set Dimensions";    
+        }, 1000);
+     }   
+    }
+    
+    
+    
+   
+   
+   //Function that manages the element loading progress bar/menu...
+   function updateLoadingBar(){
+    
+    Loading_Bar.value +=1;
+    Current_Loaded.textContent = Loading_Bar.value;
+    Total_Elements.textContent = Loading_Bar.max;
+    
+    if(Loading_Bar.value === Loading_Bar.max){
+    Loading_Text.textContent = "All elements have been loaded.";
+    Loading_Text.style.color = "green";
+    
+    setTimeout(function(){
+    Loading_Menu.style.display = "none";    
+    
+    if(Loaded === false){
+    //Temporary code, that tells everyone Happy New Year, in an alert() alert!
+    
+        
+    }
+        
+    }, 1500, );
+    
+        
+    }
+       
+   }
+   
+   
+    //The Time Display code (for paragraph element: 'Today's Date:').
+    function showDate(){
+       
+        //We create/define a new Date() element & date units...
+       var date = new Date();
+       var Month = date.getMonth()+1
+       
+      
+       
+       dateDisplay.innerHTML = Month + "/" + date.getDate() + "/" + date.getFullYear() + "/" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    }
+    setInterval(showDate, 50);
+   
+    
+    //Function that changes the Ace editor's theme (light, dark, or auto).
+    function changeEditorTheme(){
+     Theme = Theme + 1;   
+     
+     if(Theme > 2){
+        Theme = 0;
+         }
+         
+    if(Theme === 0){
+        Theme_Button.textContent = "Editor Theme: AUTO";
+        Theme_Button.title = "The Editor's theme is set to: AUTO.";
+        autoTheme = 1;
+        
+    }else{
+        autoTheme = 0;
+    }     
+     
+     
+    if(Theme === 1){
+      Theme_Button.textContent = "Editor Theme: Dark";  
+      Theme_Button.title = "The Editor's theme is set to: Dark.";
+      editor.setTheme("ace/theme/monokai");
+        
+    } 
+    
+    if(Theme === 2){
+        Theme_Button.textContent = "Editor Theme: Light";
+        Theme_Button.title = "The Editor's theme is set to: Light.";
+        editor.setTheme("ace/theme/chrome");
+        
+    }    
+        
+    }
+    
+    
+    function dynamicTheme(){
+        if(autoTheme === 1){
+        
+        //Set the Editor window's theme, based on OS settings.    
+        if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+         editor.setTheme("ace/theme/monokai");
+
+        }    
+            
+        if(window.matchMedia('(prefers-color-scheme: light)').matches){
+         editor.setTheme("ace/theme/chrome");
+
+        }    
+        
+        
+        }
+    }
+    setInterval(dynamicTheme, 100);
+    
+    
+    
+    
+    //We set the value of the Ace editor to a sample HTML line, on page load. We also set the title of the Theme Button to "The Editor's theme is set to: AUTO.", by default.
+  window.onload = function(){
+      editor.setValue("<p style='color:green; text-align:center;'>Hello, World! Try to edit me!</p>");
+      Theme_Button.title = "The Editor's theme is set to: AUTO.";
+      
+      //Show a welcoming notification to the user when the page loads, as well to request them to accept or deny any incoming notifications.
+      alert("You are about to be prompted to allow or deny incoming notifications from " + window.location + ". Press ok to continue...");
+      
+      Notification.requestPermission();
+      setTimeout(function(){
+      if(Notification.permission === "granted"){
+        alert("You have accepted notifications, thanks!");     
+      }else if(Notification.permission === "denied"){
+        alert("You have blocked notifications.");  
+      }
+      
+      new Notification("Welcome to htmlplayer.net, user!", {body:"Hello, and welcome to this site! Feel free to succeed and code with the UI here, and have fun!"});
+      
+  
+      }, 5000); 
+  }
+    
+   
+    
+    //Function to redirect the user to Mosh's HTML & CSS tutorial.
+    function notifyRedirect(){
+    document.write("<p style='color:gray; text-align:center; bottom:50%; font-family:sans-serif; font-size:40'>Now Redirecting to HTML & CSS Tutorial...</p>");    
+    }
+    
+    
+    
+    
+    //Function that updates the page the user is on, based on page selection, and updates the amount if <option>s there are.
+    
+    function updateThings(){
+    Page_Selection_Counter.textContent = Page_Selection.options.length -1;    
+     
+    if(Page_Selection.value === "Time Utility Page"){
+        window.location.href = "https://htmlplayer.net/util/Time_Utility.html";
+    }
+    
+    if(Page_Selection.value === "Website Preview Page"){
+        window.location.href = "https://htmlplayer.net/util/Website_Preview.html";   
+    }
+    
+    
+     if(Page_Selection.value === "Youtube Query Redirect Page"){
+        window.location.href = "https://htmlplayer.net/util/YT_Redirection_Page.html";   
+    }
+    
+    
+    if(Page_Selection.value === "E-mail Creation Page"){
+        window.location.href = "https://htmlplayer.net/util/Email_Creation_Space.html";
+    }
+    
+    
+    if(Page_Selection.value === "Simple Calculator Page"){
+        window.location.href = "https://htmlplayer.net/util/Calculator_Page.html";
+    }
+    
+    
+    if(Page_Selection.value === "Text Editor Page"){
+        window.location.href = "https://htmlplayer.net/util/Text_Editor_Page.html";
+    }
+    
+    if(Page_Selection.value === "Google Query Redirect Page"){
+        window.location.href="https://htmlplayer.net/util/Google_Redirection_Page.html";
+    }
+    
+    if(Page_Selection.value === "Minecraft Mod Search Page"){
+        window.location.href="https://htmlplayer.net/util/MC_Mod_Query_Redirect_Page.html";
+    }
+    
+    if(Page_Selection.value === "Wikipedia Query Redirect Page"){
+    window.location.href = "https://htmlplayer.net/util/Wiki_Query_Redirect.html";    
+    }
+    
+    if(Page_Selection.value === "Random Number Generation Page"){
+    window.location.href = "https://htmlplayer.net/util/Random_Num_Gen_Page.html";        
+    }    
+    
+    if(Page_Selection.value === "Image Preview Page"){
+    window.location.href = "https://htmlplayer.net/util/Image_Preview_Page.html";    
+    }
+    
+    if(Page_Selection.value === "Audio Preview Page"){
+    window.location.href = "https://htmlplayer.net/util/Audio_Preview_Page.html";    
+    }
+    
+    if(Page_Selection.value === "Video Preview Page"){
+    window.location.href = "https://htmlplayer.net/util/Video_Preview_Page.html";    
+    }
+        
+    }
+    setInterval(updateThings, 250);
+    
+    
+    
+    
+   
+   
+   
+   
+   //Function that copies the user-generated string in the editor, to the current user's clipboard.
+   function copyEditorString(){
+       Copy_Button.setAttribute('data-clipboard-text', editor.getValue());
+       Copy_Alert.style.display = "block";
+       Copy_Button.setAttribute('data-bs-original-title', 'Copied to clipboard!');
+       bootstrap.Tooltip.getInstance(Copy_Button).show();
+       
+       setTimeout(() => {
+        Copy_Alert.style.display = "none";
+        bootstrap.Tooltip.getInstance(Copy_Button).show();
+        Copy_Button.setAttribute('data-bs-original-title', 'Click to copy Editor content to clipboard.');
+}, 5000);
+
+   }
+   
+   
+   
+   //Initialize Bootstrap/Popper Tooltips for this whole page.
+   document.querySelectorAll('[data-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+   
+   //Initialize Clipboard.js for all elements on this page.
+   new ClipboardJS('[id][data-clipboard-text]');
+
+
+   
+   
+    //Update the content of the Player to match the content of the Editor. 
+    function updatePlayer(){
+     Player_Window.srcdoc = editor.getValue();
+    }  
+   
+   
+    editor.addEventListener("input", updatePlayer);
+
+
+
+//Update element's titles...
+function updateTitle(){
+   
+   
+ if(editor.getValue() === ""){
+    Clear_Button.disabled = true;
+    Clear_Button.title = "You can't clear nothing - Button DISABLED!"
+    Copy_Button.disabled = true;
+}else{
+ Clear_Button.disabled = false;
+ Copy_Button.disabled = false;
+ Clear_Button.title = "If you decide to clear this Editor, then you will clear all of your inputted text (" + editor.getValue().length + " characters). Click to clear."
+ Download_Button.disabled = false;
+}
+ 
+ 
+ 
+ if(!editor.getValue().length > 0){
+     Download_Button.disabled = true;
+     }else{
+     Download_Button.title = "If you click this button, you will start the download process of your inputted HTML code (" + Editor_Window.getValue().length + " characters in your case). Click to download your site."
+     }
+  
+  Code_In_New_Tab_Button.title = "If you decide to click this button, a new tab will be opened. The content in the tab, will contain your inputted HTML code. Click to open a new tab with your HTML code!"
+    
+if(Editor_Window.getValue().length > 0){
+    Editor_Counter.textContent = "Total characters (spaces included): " + Editor_Window.getValue().length
+}else if(Editor_Window.getValue().length === 0){
+    Editor_Counter.textContent = "";
+}
+    
+if(Font === 1){
+    Font_Button.title = "Current selected editor font: Browser. This is your browser's font. This is font " + Font + " of "  + "6.";
+}
+
+
+if(Font === 2){
+    Font_Button.title = "Current selected editor font: Hack. This is font " + Font + " of "  + "6.";   
+}
+
+
+if(Font === 3){
+    Font_Button.title = "Current selected editor font: Cursive. This is font " + Font + " of "  + "6.";   
+ 
+}
+
+
+if(Font === 4){
+    Font_Button.title = "Current selected editor font: Arial This is font " + Font + " of "  + "6.";   
+   
+}
+
+
+if(Font === 5){
+    Font_Button.title = "Current selected editor font: Sans-Serif. This is font " + Font + " of "  + "6.";   
+ 
+}
+
+
+if(Font === 6){
+    Font_Button.title = "Current selected editor font: Source Code Pro. This is font " + Font + " of "  + "6 - Last font!";   
+ 
+}
+
+
+}
+setInterval(updateTitle, 100);
+
+
+
+
+//The clearing process of the Editor...
+function clearEditor(){
+   
+   
+   Clear_Editor = prompt("You are about to clear the Editor Window. This will clear all the code/content that you inputted into it. Are you sure you want to clear it? Type in 'Yes', to clear, and 'No',  to not.")
+
+
+       if (Clear_Editor === "No"){
+       alert("Ok, the Editor won't be cleared. Press 'OK' to dismiss this message.")
+     }
+     
+     if (Clear_Editor === ""){
+       alert("Ok, the Editor won't be cleared. Press 'OK' to dismiss this message.")
+     }
+
+      if(Clear_Editor === "Yes"){
+      Really_End = confirm("Are you really sure that you want to clear the Editor? This will remove " + editor.getValue().length + " characters of code/text that you typed in. This action can't be undone.");
+      
+           if(Really_End === true){
+       editor.setValue("");
+       Player_Window.srcdoc = ""
+      
+      
+      setTimeout(() => {
+   alert("Editor Cleared.")
+}, 500);
+
+      
+      
+    } 
+          
+if(Really_End === false){  
+     alert("Ok, the Editor won't be cleared. Press 'OK' to dismiss.");
+    }
+          
+          
+    }
+      
+        
+          
+  }
+   
+
+
+
+
+//Download the HTML code...
+function Download(){
+    
+     if(editor.getValue() === ""){
+     alert("You can't download nothing!");
+    }else{
+       
+       File_Name = prompt("Before you download your site, what do you want to call the HTML file? Enter the name you want to call your file, in the input box below.");
+       
+       if(File_Name === ""){
+           File_Name = "Unnamed Site"
+           alert("You didn't name your site, so it will be named: '" + File_Name + ".html'.");
+         }
+       
+       downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(editor.getValue());
+       downloadLink.download = File_Name + ".html";
+       downloadLink.click();
+     }
+         
+     }
+
+
+//Open the Player's content in a new tab...
+function displayCodeInNewTab(){
+  var tabWithCode = window.open();
+  tabWithCode.document.write("<title>HTML Code Preview</title>" + editor.getValue());
+}
+
+
+    
+
+function changeEditorFont(){
+Font = Font + 1;
+
+//Font Limit
+if(Font > 6){
+  Font = 1;  
+}
+
+//Default Font
+if(Font === 1){
+    Font_Button.textContent = "Font: Default/Browser"
+    Editor_Window.style.fontFamily = null;
+}
+
+
+    
+//Hack Font
+if(Font === 2){
+    Font_Button.textContent = "Font: Hack";
+    Editor_Window.style.fontFamily = "Hack"
+    
+}
+
+//Cursive Font
+if(Font === 3){
+Font_Button.textContent = "Font: Cursive"
+Editor_Window.style.fontFamily = "cursive"    
+}
+    
+
+//Arial Font
+if(Font === 4){
+    Font_Button.textContent = "Font: Arial";
+    Editor_Window.style.fontFamily = "Arial"
+    
+}    
+    
+//Sans-serif Font
+if(Font === 5){
+    Font_Button.textContent = "Font: Sans";
+    Editor_Window.style.fontFamily = "sans-serif"
+    
+}    
+    
+
+if(Font === 6){
+    Font_Button.textContent = "Font: Source Code Pro";
+    Editor_Window.style.fontFamily = "Source Code Pro"
+        
+} 
+ 
+ bootstrap.Tooltip.getInstance(Font_Button).show();
+        
+}
+
+    
+//Progress Bar & Text updates...
+function updateMeters(){
+Character_Bar.value = editor.getValue().length;
+ 
+Character_Text.textContent = " - " + editor.getValue().length + "/" + "25,000,000" + " Characters"
+
+if(editor.getValue().length === 25000000){
+    Character_Text.textContent = " - " + Editor_Window.value.length + "/" + "25,000,000" + " Characters - You typed 25M chars, GG! You may keep typing, there are no limitations we provide."
+} 
+    
+if(editor.getValue().length === 1000000){
+Character_Text.textContent = " - " + editor.getValue().length + "/" + "25,000,000" + " Characters - You may be seeing some lag."    
+Editor_Counter.style.fontSize = 30;
+    }else{
+        Editor_Counter.style.fontSize = 22.5;
+    }
+    
+}
+setInterval(updateMeters);
+
+
+//Color changing "My Other Sources" text function
+function changeTextColor(){
+Color = Color + 1
+
+//Reset the color (color limit)
+if(Color > 1){
+    Color = 0
+}
+ 
+//Change the color of the text
+if(Color === 0){
+    The_Text.style.color = "black"
+}
+ 
+if(Color === 1){
+    The_Text.style.color = "yellow"
+} 
+    
+}
+setInterval(changeTextColor,400);
+
+//Play sounds to users on the site...
+function playUISound(){
+ UI_Sound.play();   
+}
+
+function playCopySound(){
+Copy.play();    
+}
+
+
+</script>
+</body>

@@ -1,0 +1,127 @@
+<link rel="icon" href="https://htmlplayer.net/images/Site_Icon.png">
+
+<title>Simple Calculator Page | htmlplayer.net</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<h1 style="text-align:center">Simple Calculator</h1>
+<p style="text-align:center; font-size:20; color:gray">Welcome to the Calculator page of <span data-toggle="tooltip" data-bs-html="true" title="Click to <i>redirect</i> <u>home</u>!" onclick="window.location.href = 'https://htmlplayer.net'" style="color:darkgray;" onmouseover="this.style.fontStyle='italic', this.style.textDecoration='underline'" onmouseleave="this.style.fontStyle='normal', this.style.textDecoration='none'">htmlplayer.net</span>! What this page allows you to do, is evaluate mathimatical expressions with a simple UI.</p>
+
+<hr>
+
+<p style="color:transparent; user-select:none">_</p>
+
+<div class="d-flex justify-content-center">
+<input type="number" id="Num1Input" class="form-control" placeholder="Enter 1st Number..." style="width:40%">    
+</div>
+
+<p></p>
+
+<div class="d-flex justify-content-center">
+<select id="operationSelect" class="form-control" style="width:35%">
+<option>Choose Operation...</option>
+
+<option>+</option>
+<option>-</option>
+<option>*</option>
+<option>/</option>
+</select>    
+</div>
+ 
+<p></p>
+
+<div class="d-flex justify-content-center">
+<input type="number" id="Num2Input" class="form-control" style="width:40%" placeholder="Enter 2nd Number...">    
+</div>
+
+<p style="color:transparent; user-select:none">_</p>
+
+<div class="d-flex justify-content-center">
+<button data-toggle="tooltip" title="Click this button to evaluate your expression/equation <u>based on your inputs</u>." data-bs-html="true" onclick="Calculate()" id="btnc" class="btn btn-primary">Evaluate</button>    
+</div>
+
+<p></p>
+
+<p id="resultTxt" style="text-align: center; font-style: italic">Result will appear here.</p>
+
+
+
+
+
+<script>
+var Input_1 = document.getElementById("Num1Input");
+var Operation_Selection = document.getElementById("operationSelect");
+var Input_2 = document.getElementById("Num2Input");
+var Calc_Button = document.getElementById("btnc");
+var Result = document.getElementById("resultTxt");
+
+//Initialize Bootstrap Tooltips...
+window.onload = function(){
+const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+}
+
+function Calculate(){
+
+if(Input_1.value.length > 0){
+
+if(Operation_Selection.value === "+"){
+Result.textContent = "Result: " + parseFloat(parseFloat(Input_1.value) + parseFloat(Input_2.value)) + " (" + Input_1.value + Operation_Selection.value + Input_2.value + ")"
+}
+
+ 
+if(Operation_Selection.value === "-"){
+Result.textContent = "Result: " + parseFloat(parseFloat(Input_1.value) - parseFloat(Input_2.value)) + " (" + Input_1.value + Operation_Selection.value + Input_2.value + ")"
+}    
+
+
+if(Operation_Selection.value === "*"){
+Result.textContent = "Result: " + parseFloat(parseFloat(Input_1.value) * parseFloat(Input_2.value)) + " (" + Input_1.value + Operation_Selection.value + Input_2.value + ")"
+}
+   
+ 
+ 
+if(Operation_Selection.value === "/"){
+Result.textContent = "Result: " + parseFloat(parseFloat(Input_1.value) / parseFloat(Input_2.value)) + " (" + Input_1.value + Operation_Selection.value + Input_2.value + ")"
+}
+
+
+
+if(Operation_Selection.value === "Choose Operation..."){
+      Calc_Button.textContent = "You must select an operation!";
+      setTimeout(function(){
+    Calc_Button.textContent = "Evaluate";  
+  }, 1000)
+
+    }
+ 
+
+if(!Operation_Selection.value.includes("Choose Operation...")){
+  Calc_Button.textContent = "Evaluated!";
+ 
+  setTimeout(function(){
+    Calc_Button.textContent = "Evaluate";  
+  }, 1000)
+}
+
+   
+}else{
+    Calc_Button.textContent = "You must input your numbers!"
+
+
+    setTimeout(function(){
+    Calc_Button.textContent = "Evaluate";    
+    }, 1000);
+}    
+
+}
+
+
+
+</script>

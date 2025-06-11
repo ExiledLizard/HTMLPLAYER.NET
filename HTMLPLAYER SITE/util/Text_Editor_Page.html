@@ -1,0 +1,414 @@
+<link rel="icon" href="https://htmlplayer.net/images/Site_Icon.png">
+<title>Text Editor Page | htmlplayer.net</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<h1 style="font-style: bold; text-align: center;">Text Editor <span> <svg data-bs-toggle="modal" data-bs-target="#IModal"  data-toggle="tooltip" data-bs-html="true" title="Click here to <b>open a menu</b> containing info about a <u>hidden feature</u> of the <i>Text Editor Box</i>." style="color:gray" onmouseover="this.style.color='skyblue'" onmouseout="this.style.color='gray'" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+</svg></span></h1>
+<p style="color: gray; font-size: 20; text-align: center;">Welcome to the Text Editor page of <span style="color: lightgray;" onmouseover="this.style.fontStyle='italic', this.style.textDecoration='underline'" onmouseout="this.style.fontStyle='normal', this.style.textDecoration='none'" onclick="window.location.href='https://htmlplayer.net'" data-toggle="tooltip" data-bs-html="true" title="Click to <u>redirect</u> home!">htmlplayer.net</span>! What this page allows you to do, is enter text (notes, essays, e.t.c) in an input box. Once you have finished typing, press a button (near text editor), to download your text as a txt file (before download, you will be prompted to name the file).</p>
+<hr>
+
+<p style="color: transparent; user-select: none;">.</p>
+
+<h3 style="text-align:center" class="text-info">Text Input Box <span style="color:gray"> | </span> <span data-toggle="tooltip" data-bs-html="true" title="Click this text, to be <u>prompted</u> to <b>clear</b> the Text Editor content." onclick="clearMain()" style="color: blue; font-size:18" onmouseover="this.style.textDecoration = 'underline'" onmouseout="this.style.textDecoration = 'none'">Clear <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+</svg></span> <span style="color:gray"> | </span> <span id="copierText" style="font-size:18;color:gray;transition:0.5s" onclick="copyAll()" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'" data-toggle="tooltip" data-bs-html="true" title="Click here to <b>copy</b> the text in the <i>Text Editor</i>."> Copy Input Box Content </span><span style="color:gray"> | </span> <button id="voiceBtn" onclick="Read()" class="btn btn-secondary" data-toggle="tooltip" data-bs-html="true" title="Click this button in order to <b>hear a voice</b> <u>read</u> the text that you have inputted into the <i>Text Box</i>.">Read Out Text <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up" viewBox="0 0 16 16">
+  <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+  <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+  <path d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"/>
+</svg></button> <span style="color:transparent;user-select:none"> | </span>
+<!-- Voice Language Selection Dropdown Menu-->
+
+<span class="dropdown">
+<button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" data-toggle="tooltip" data-bs-html="true" title="Click here to see a <b>dropdown menu</b>; it allows you to <u>set the language</u> of the voice-over triggered by the button on the left (<-).">Voice Language</button>
+<ul class="dropdown-menu">
+<li class="dropdown-item disabled"><b style="color:lightgray;">Select a Voice Language...</b></li>
+<li class="dropdown-divider"></li>
+<li class="dropdown-item" onclick="setEnglish()">English</li>
+<li class="dropdown-item" onclick="setRussian()">Russian</li>
+<li class="dropdown-item" onclick="setSpanish()">Spanish</li>
+<li class="dropdown-item" onclick="setJapanese()">Japanese</li>
+<li class="dropdown-item" onclick="setChinese()">Chinese</li>
+</ul>
+</span>
+<span id="setBadge" class="badge bg-info rounded-pill" style="opacity:0;user-select:none;">Set to to ___!</span>
+</h3> 
+
+
+
+
+
+<p></p>
+
+<div class="d-flex justify-content-center">
+<textarea placeholder="Enter any text..." class="form-control" style="width:45%; height: 250px" id="mainBox"></textarea>
+
+</div>	
+
+<p></p>
+
+<div class="d-flex justify-content-center">
+
+<button style="width:20%" onclick="downloadText()" class="btn btn-primary" id="downloadButton" data-toggle="tooltip" data-bs-html="true" title="<u>Click</u> this button to <b>download</b> the text that <u>you</u> have inputted into the <i>Text Editor</i>."><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg> Download Inputted Text</button>
+
+</div>
+
+
+<!-- Clear Alert (Confirmation) -->
+<div class="d-flex justify-content-center">
+
+<div class="alert alert-warning" style="position:fixed; bottom: 20%; display: none;" id="clearWarning">
+<b>Clear Text Editor Text?</b> <button class="btn btn-close" onclick="closeClearAlert()" style="position: absolute; right:2%" data-toggle="tooltip" data-bs-html="true" title="Click <u>this button</u> to <b>close</b> this confirmation alert (note that your inputted work will <u>not be cleared</u>)."></button>
+<hr>
+<p>Are you sure you want to clear <b id="charDisplay1">--</b> characters of text that you inputted into the <b>Text Editor</b>?</p>
+
+
+<div style="text-align: center;">
+<button class="btn btn-success" id="yesClear" onclick="reallyClear()">Yes</button> <span style="color: transparent; user-select: none;">------------------</span> <button onclick="sayWontClear()" class="btn btn-danger" id="noClear">No</button>
+</div>
+
+
+</div>	
+
+</div>
+
+<!-- Cleared Alert -->
+<div class="d-flex justify-content-center">
+<div class="alert alert-success" id="clearedAlert" style="position:fixed; bottom: 20%; display: none;">
+ <b>Text Editor Cleared</b>
+ <hr>
+ You have successfully cleared the Text Editor! 
+</div>
+</div>
+
+<!-- File Name Prompt For Download -->
+<div class="d-flex justify-content-center">
+ 
+ <div class="alert alert-info" id="fileNamePrompt" style="position:fixed; bottom: 20%; display: none;">
+ <b>Name Your File</b> <span class="btn btn-close" data-toggle="tooltip" data-bshtml="true" title="Click to <b>close</b> this prompt, and <u>discard changes</u>." style="position:absolute; right:2%" onclick="document.getElementById('fileNamePrompt').style.display = 'none', document.getElementById('fileNameInput').value = ''"></span>
+ <hr>
+ <p>Please enter the name of your file into the input box below. Once you have inputted the file name, press the Enter key on your keyboard.</p>
+
+ <p></p>
+
+<div class="d-flex justify-content-center">
+
+<input style="width:30%" class="form-control" placeholder="Enter file name & then press ENTER." id="fileNameInput">
+
+</div> 
+</div> 
+
+</div>
+
+
+<!-- Download Success Alert -->	
+<div class="d-flex justify-content-center">
+
+<div class="alert alert-success" style="position:fixed; bottom: 20%; display:none;" id="downloadAlert">
+<b>Download Process Started!</b><span class="btn btn-close" style="position: absolute; right: 2%" onclick="document.getElementById('downloadAlert').style.display = 'none'" data-toggle="tooltip" data-bs-html="true" title="<u>Click</u> to <b>close</b> this alert."></span>
+<hr>
+<p>The download process of your inputted text (<b id="charDisplay2">--</b> characters) has started! <b>Thank you</b> for using this site's page!</p>
+</div>	
+
+</div>
+
+
+<!-- Hidden Feature Info Modal -->
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="IModal">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+<h3>A Hidden Feature (Text Box)</h3><span class="btn btn-close" data-bs-dismiss="modal" data-toggle="tooltip" data-bs-html="true" title="Click to <b>close</b> <u>this</u> menu."></span>
+</div>
+
+<div class="modal-body">
+<p style="text-align: center; color: royalblue; font-size: 25; font-style: italic">Here It Is</p>
+<p></p>
+
+<p style="text-align: center; color: gray;"><i>So, you ended up clicking the Info SVG image from curiosity...?</i> Well, the hidden feature of the <b>Text Box</b>, is that there are placeholders. How these "placeholders" work, is that they replace a specific keyword, to its meaning. Here's an example sentence with a placeholder in action, using the <i>{time}</i> placeholder: Hello, Santa, the current time is: 20:01. Here are all of the available placeholders that the Input Box supports:</p>
+
+<p style="text-align: center; color: gray;"><b>No .1:</b> {fulldate} - Example output: Thu Dec 05 2024 18:51:08 GMT-0800 (Pacific Standard Time).</p>
+<p style="text-align: center; color: gray;"><b>No .2:</b> {date} - Example output: 04/16/2008.</p>
+<p style="text-align: center; color: gray;"><b>No .3:</b> {year} - Example output: 2008.</p>
+<p style="text-align: center; color: gray;"><b>No .4:</b> {month} - Example output: 04.</p>
+<p style="text-align: center; color: gray;"><b>No .5:</b> {dayofmonth} - Example output: 26.</p>
+<p style="text-align: center; color: gray;"><b>No .6:</b> {time} - Example output: 21:03.</p>
+
+
+<div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Close Menu</button></div>
+
+</div>  
+
+</div>
+
+</div>
+
+</div> 
+
+
+
+<script>
+//We define our variables...
+var Err_Sound = new Audio("https://htmlplayer.net/sounds/Error.mp3");
+var Clear_Sound = new Audio("https://htmlplayer.net/sounds/Clear.mp3");  
+var Text_Box = document.getElementById("mainBox");
+var Download_Button = document.getElementById("downloadButton");
+var Play_Voice_Button = document.getElementById("voiceBtn");
+var Clear_Alert = document.getElementById("clearWarning");
+var Cleared_Alert = document.getElementById("clearedAlert");
+var Char_Display_1 = document.getElementById("charDisplay1");
+var Char_Display_2 = document.getElementById("charDisplay2");
+var File_Name_Alert = document.getElementById("fileNamePrompt");
+var File_Name_Input = document.getElementById("fileNameInput");
+var Download_Alert = document.getElementById("downloadAlert");
+var Confirm_Yes = document.getElementById("yesClear");	
+var Confirm_No = document.getElementById("noClear");
+var downloadLink = document.createElement("a");
+var date = new Date();
+var Voice_Lang = "en";
+var Lang_Set_Badge = document.getElementById("setBadge");
+var Copier_Text = document.getElementById("copierText");
+var Copy_Sound = new Audio("https://htmlplayer.net/sounds/Copy_Done.mp3");
+
+
+//Function to replace text to placeholder values (interval: 100ms).
+function setPlaceholders(){
+Text_Box.value = Text_Box.value.replace(/{fulldate}/g, Date())
+Text_Box.value = Text_Box.value.replace(/{date}/g, (date.getMonth() +1) + "/" + date.getDate() + "/" + date.getFullYear())
+Text_Box.value = Text_Box.value.replace(/{year}/g, date.getFullYear())
+Text_Box.value = Text_Box.value.replace(/{month}/g, (date.getMonth() + 1))
+Text_Box.value = Text_Box.value.replace(/{dayofmonth}/g, date.getDate())
+Text_Box.value = Text_Box.value.replace(/{time}/g, date.getHours() + ":" + date.getMinutes());
+}
+setInterval(setPlaceholders, 100);
+
+//Initialization of the Bootstrap/Popper Tooltips
+window.onload = function(){
+var Welcoming_Voice = new SpeechSynthesisUtterance("Welcome to this page!");
+Welcoming_Voice.lang = "en-US";
+window.speechSynthesis.speak(Welcoming_Voice);   
+document.querySelectorAll('[data-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+}
+
+//Process of clearing Text Box text.
+function clearMain(){
+if(Text_Box.value.length > 0){
+Clear_Alert.style.display = "block"
+
+
+}else{
+  Err_Sound.play();
+Text_Box.placeholder = "You must type something to clear!"	
+setTimeout(function(){
+Text_Box.placeholder = "Enter any text..."
+}, 1000);	
+
+}
+
+}
+
+//Show/Hide alerts.
+function closeClearAlert(){
+Clear_Alert.style.display = "none";	
+}
+
+
+//Simply clear the main text box.
+function reallyClear(){
+Clear_Sound.play();
+Text_Box.value = "";
+Confirm_Yes.textContent = "Yes - Cleared!";
+Cleared_Alert.style.display = "block";
+
+setTimeout(function(){
+Cleared_Alert.style.display = "none";
+Confirm_Yes.textContent = "Yes";
+}, 1000);
+
+}
+
+
+//Select the text in the Text Box, then copy it to the clipboard!
+function copyAll(){
+if(Text_Box.value.length > 0){
+Copier_Text.style.color = "lightgreen";
+Copier_Text.textContent = "Copied!"; 
+navigator.clipboard.writeText(Text_Box.value);
+Copy_Sound.play();
+setTimeout(function(){
+Copier_Text.style.color = "gray";
+Copier_Text.textContent = "Copy Input Box Content";     
+}, 1000);
+}else{
+Copier_Text.style.color = "darkred";
+Copier_Text.textContent = "You must enter text to copy!"; 
+Err_Sound.play();
+setTimeout(function(){
+Copier_Text.style.color = "gray";
+Copier_Text.textContent = "Copy Input Box Content";     
+}, 1000);    
+}    
+
+    
+}
+
+//Simply say that the box won't be cleared, in the alert.
+function sayWontClear(){
+Confirm_No.textContent = "No - Ok, won't clear.";
+setTimeout(function(){
+Clear_Alert.style.display = "none";
+Confirm_No.textContent = "No";
+}, 750);
+
+}
+
+
+//Process of downloading inputted text in Text Box.
+function downloadText(){
+File_Name_Alert.style.display = "block";
+}
+
+
+File_Name_Input.addEventListener('keydown', function(event){
+if(event.key === "Enter"){
+
+if(File_Name_Input.value.length > 0){
+Char_Display_2.textContent = Text_Box.value.length;   
+downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(Text_Box.value);
+downloadLink.download = File_Name_Input.value + ".txt";
+downloadLink.click();
+File_Name_Input.value = "";
+File_Name_Alert.style.display = "none";
+Download_Alert.style.display = "block";
+}else{
+File_Name_Input.placeholder = "You must enter a file name!";
+Err_Sound.play();
+setTimeout(function(){
+File_Name_Input.placeholder = "Enter file name & then press ENTER.";
+}, 1000);  
+
+}
+
+}
+
+});
+
+
+
+//Update various things by running this function at a set interval (we'll use 100ms).
+function updateThings(){
+//Update displays...
+Char_Display_1.textContent = Text_Box.value.length;
+if(Text_Box.value.length > 0){
+Download_Button.disabled = false;
+Play_Voice_Button.disabled = false;
+}else{
+Download_Button.disabled = true;
+Play_Voice_Button.disabled = true;
+Clear_Alert.style.display = "none";
+}
+
+}
+setInterval(updateThings, 100); //Run the updateThings() function each 100ms.
+
+//Set voice language with Bootstrap dopdown menu (3 functions).
+
+//English
+function setEnglish(){
+var English_Voice = new SpeechSynthesisUtterance("Success! Language set to English!");
+English_Voice.lang = "en";
+window.speechSynthesis.speak(English_Voice);    
+Voice_Lang = "en";
+Lang_Set_Badge.style.transition = "0s";
+Lang_Set_Badge.style.opacity = "1";
+Lang_Set_Badge.innerHTML = "Set to <b>English</b>!";
+setTimeout(function(){
+    Lang_Set_Badge.style.transition = "1s";
+Lang_Set_Badge.style.opacity = "0";    
+}, 1000);
+
+}
+
+//Russian
+function setRussian(){
+var Russian_Voice = new SpeechSynthesisUtterance("Success! Language set to Russian!");
+Russian_Voice.lang = "ru";
+window.speechSynthesis.speak(Russian_Voice);
+Voice_Lang = "ru";   
+Lang_Set_Badge.style.transition = "0s";
+Lang_Set_Badge.style.opacity = "1";
+Lang_Set_Badge.innerHTML = "Set to <b>Russian</b>!";
+setTimeout(function(){
+    Lang_Set_Badge.style.transition = "1s";
+Lang_Set_Badge.style.opacity = "0";    
+}, 1000);
+}
+
+//Spanish
+function setSpanish(){
+var Spanish_Voice = new SpeechSynthesisUtterance("Success! Language set to Spanish!");
+Spanish_Voice.lang = "es";
+window.speechSynthesis.speak(Spanish_Voice);
+Voice_Lang = "es"; 
+Lang_Set_Badge.style.transition = "0s";
+Lang_Set_Badge.style.opacity = "1";
+Lang_Set_Badge.innerHTML = "Set to <b>Spanish</b>!";
+setTimeout(function(){
+Lang_Set_Badge.style.transition = "1s";
+Lang_Set_Badge.style.opacity = "0";    
+}, 1000);
+}
+
+//Chinese
+function setChinese(){
+var Chinese_Voice = new SpeechSynthesisUtterance("Success! Language set to Chinese!");
+Chinese_Voice.lang = "zh-CN";
+window.speechSynthesis.speak(Chinese_Voice);
+Voice_Lang = "zh-CN"; 
+Lang_Set_Badge.style.transition = "0s";
+Lang_Set_Badge.style.opacity = "1";
+Lang_Set_Badge.innerHTML = "Set to <b>Chinese</b>!";
+setTimeout(function(){
+Lang_Set_Badge.style.transition = "1s";
+Lang_Set_Badge.style.opacity = "0";    
+}, 1000);
+}
+
+function setJapanese(){
+var Japanese_Voice = new SpeechSynthesisUtterance("Success! Language set to Japanese!");
+Japanese_Voice.lang = "ja-JP";
+window.speechSynthesis.speak(Japanese_Voice);
+Voice_Lang = "ja-JP"; 
+Lang_Set_Badge.style.transition = "0s";
+Lang_Set_Badge.style.opacity = "1";
+Lang_Set_Badge.innerHTML = "Set to <b>Japanese</b>!";
+setTimeout(function(){
+Lang_Set_Badge.style.transition = "1s";
+Lang_Set_Badge.style.opacity = "0";    
+}, 1000); 
+}
+
+
+//Read the text in the Text Box as a voice, out loud to the user.
+function Read(){
+var Voice_Words = document.getElementById("mainBox").value;
+var E_Guy = new SpeechSynthesisUtterance(Voice_Words);
+E_Guy.lang = Voice_Lang;
+window.speechSynthesis.speak(E_Guy);
+}
+</script>	

@@ -1,0 +1,305 @@
+<title>MC Mod Search & Redirect | htmlplayer.net</title>
+<link rel="icon" href="https://htmlplayer.net/images/Site_Icon.png">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<h1 style="text-align:center">Minecraft Mod Search & Redirect</h1>
+<p style="color:gray; font-size:20; text-align:center">Welcome to the Minecraft Mod Search & Redirect Page of <span style="color:lightgray;" onmouseover="this.style.fontStyle='italic', this.style.textDecoration='underline'" onmouseleave="this.style.textDecoration='none', this.style.fontStyle='normal'" data-bs-toggle="tooltip" data-bs-html="true" title="Click here to get redirected to <b>home</b> (<u>https://www.htmlplayer.net</u>)!" onclick="window.location.href='https://www.htmlplayer.net'">htmlplayer.net</span>! What this page allows you to do, is to easily find & access Minecraft mods by entering a mod name in an input box. You can also filter many mod options, such as what environment it runs on (Client, or Server), and more. Thanks to <b style="color:rgb(0, 155, 66)" onclick="window.location.href='https://www.modrinth.com'" onmouseover="this.style.textDecoration='underline'" onmouseleave="this.style.textDecoration='none'" data-bs-toggle="tooltip" data-bs-html="true" title="Click to redirect to <b>Modrinth's</b> site (<u>https://www.modrinth.com</u>).">Modrinth</b> for making this page's development possible.</p>
+
+<hr>
+
+<p style="user-select:none; color:transparent">.</p>
+
+
+<div style="text-align:center">
+<select id="gameVerFilter" data-bs-toggle="tooltip" data-bs-html="true" title="Select a <b>game version</b> (<u>not</u> required).">
+<option>Filter Game Version...</option>  
+<option>1.21.5</option>
+<option>1.21.4</option>
+<option>1.21.3</option>
+<option>1.21.2</option>
+<option>1.21.1</option>
+<option>1.21</option>
+<option>1.20.6</option>
+<option>1.20.5</option>
+<option>1.20.4</option>
+<option>1.20.3</option>
+<option>1.20.2</option>
+<option>1.20.1</option>
+<option>1.20</option>
+<option>1.19.4</option>
+<option>1.19.3</option>
+<option>1.19.2</option>
+<option>1.19.1</option>
+<option>1.19</option>
+<option>1.18.2</option>
+<option>1.18.1</option>
+<option>1.18</option>
+<option>1.17.1</option>
+<option>1.17</option>
+<option>1.16.5</option>
+<option>1.16.4</option>
+<option>1.16.3</option>
+<option>1.16.2</option>
+<option>1.16.1</option>
+<option>1.16</option>
+<option>1.15.2</option>
+<option>1.15.1</option>
+<option>1.15</option>
+<option>1.14.4</option>
+<option>1.14.3</option>
+<option>1.14.2</option>
+<option>1.14.1</option>
+<option>1.14</option>
+<option>1.13.2</option>
+<option>1.13.1</option>
+<option>1.13</option>
+<option>1.12.2</option>
+<option>1.12.1</option>
+<option>1.12</option>
+<option>1.11.2</option>
+<option>1.11.1</option>
+<option>1.11</option>
+<option>1.10.2</option>
+<option>1.10.1</option>
+<option>1.10</option>
+<option>1.9.4</option>
+<option>1.9.3</option>
+<option>1.9.2</option>
+<option>1.9.1</option>
+<option>1.9</option>
+<option>1.8.9</option>
+<option>1.8.8</option>
+<option>1.8.7</option>
+<option>1.8.6</option>
+<option>1.8.5</option>
+<option>1.8.4</option>
+<option>1.8.3</option>
+<option>1.8.2</option>
+<option>1.8.1</option>
+<option>1.8</option>
+<option>1.7.10</option>
+<option>1.7.9</option>
+<option>1.7.8</option>
+<option>1.7.7</option>
+<option>1.7.6</option>
+<option>1.7.5</option>
+<option>1.7.4</option>
+<option>1.7.3</option>
+<option>1.7.2</option>
+<option>1.6.4</option>
+<option>1.6.2</option>
+<option>1.6.1</option>
+<option>1.5.2</option>
+<option>1.5.1</option>
+<option>1.4.7</option>
+<option>1.4.6</option>
+<option>1.4.5</option>
+<option>1.4.4</option>
+<option>1.4.3</option>
+<option>1.4.2</option>
+<option>1.3.2</option>
+<option>1.3.1</option>
+<option>1.2.5</option>
+<option>1.2.4</option>
+<option>1.2.3</option>
+<option>1.2.2</option>
+<option>1.2.1</option>
+<option>1.1</option>
+<option>1.0</option>
+</select>
+
+<span></span>
+
+<select id="modLoaderFilter" data-bs-toggle="tooltip" data-bs-html="true" title="Select a <b>mod loader</b> (<u>not</u> required).">
+<option>Filter Mod Loader...</option>    
+<option>Fabric</option>
+<option>Forge</option>
+<option>NeoForge</option>
+<option>Quilt</option>
+<option>LiteLoader</option>
+<option title="This loader has another name, too: 'Risugamis ModLoader'.">ModLoader</option>
+<option>Rift</option>
+</select>
+
+<span></span>
+
+<select id="envFilter" data-bs-toggle="tooltip" data-bs-html="true" title="Select an <b>environment</b> (<u>not</u> required).">
+<option>Filter Environment...</option>  
+<option>Client</option>
+<option>Server</option>
+</select>
+
+<span></span>
+
+<select id="categoryFilter" data-bs-toggle="tooltip" data-bs-html="true" title="Select a <b>category</b> (<u>not</u> required).">
+<option>Filter Category...</option>
+<option>Adventure</option>
+<option>Cursed</option>
+<option>Decoration</option>
+<option>Economy</option>
+<option>Equipment</option>
+<option>Food</option>
+<option>Game-Mechanics</option>
+<option>Library</option>
+<option>Magic</option>
+<option>Management</option>
+<option>Minigame</option>
+<option>Mobs</option>
+<option>Optimization</option>
+<option>Social</option>
+<option>Storage</option>
+<option>Technology</option>
+<option>Transportation</option>
+<option>Utility</option>
+<option>World-Generation</option>
+</select>
+
+<span></span>
+
+<select id="modSortFilter">
+<option>Sort Mods By...</option>
+<option>Relevance</option>
+<option>Downloads</option>
+<option>Follows</option>
+<option>Newest</option>
+<option>Updated</option>
+</select>
+
+</div>
+
+<p></p>
+
+<div class="d-flex justify-content-center">
+<input data-bs-toggle="tooltip" data-bs-html="true" title="Enter a <b>mod name</b> (<u>required</u>)." id="modSearch" class="form-control" style="width:45%" type="search" placeholder="Enter Minecraft mod name...">
+<span> <span style="color:transparent; user-select:none"> | </span> <button data-bs-toggle="tooltip" data-bs-html="true" title="Click to <b>redirect/load a page</b> that will display Minecraft mods, <u>based on your query</u>. Note that you <u>don't have to click this button</u> to search; just press the <b>[Enter]</b>/<b>[return]</b> key on your keyboard right after you type your query." id="searchBtn" class="btn btn-primary" onclick="runSearch()">Search</button> <span style="color:transparent; user-select:none">|</span><span id="iframePreviewStatusText" style="color:gray; font-size:15"> Use Iframe Preview </span><input onclick="playClickedSound()" data-bs-toggle="tooltip" data-bs-html="true" title="<b>Check</b> if you want to display Minecraft mods <u>on this page</u> (<i>without</i> redirecting), or leave <b>un-checked</b> to redirect to a page with mods." id="iframeCheckBox" type="checkbox"></span>
+</div>
+
+<p style="user-select:none; color:transparent;">.</p>
+
+
+<div style="text-align:center;">
+<iframe class="placeholder" onload="loadingAnimationManagement()" id="modListPreview"  style="width:75%;height:60%; filter:drop-shadow(7px 7px);border-radius: 10px;"></iframe>	
+</div>	
+
+
+<script type="text/javascript">
+//We define our sound variables...
+
+//Error Sound	
+var Err_Sound = new Audio("https://htmlplayer.net/sounds/Error.mp3");
+
+//Checkbox Click Sound
+var Iframe_Checkbox_Clicked = new Audio("https://htmlplayer.net/sounds/Hit_Sound.mp3");
+
+//We define our HTML element variables...
+
+//Filter Select Tags
+var GAME_VERSION = document.getElementById("gameVerFilter");
+var MOD_LOADER = document.getElementById("modLoaderFilter");
+var MOD_ENVIRONMENT = document.getElementById("envFilter");
+var MOD_CATEGORY = document.getElementById("categoryFilter");
+var MOD_SORT = document.getElementById("modSortFilter");
+
+//Mod Name Search Box
+var Search_Box = document.getElementById("modSearch");
+
+//Mod Search Button	
+var Search_Button = document.getElementById("searchBtn");
+
+
+//Iframe Mode
+
+//Iframe
+var IFRAME = document.getElementById("modListPreview");
+
+//Iframe Mode Checkbox
+var Iframe_Checkbox = document.getElementById("iframeCheckBox");
+
+//Iframe Mode Text
+var Iframe_Status = document.getElementById("iframePreviewStatusText");
+
+
+//Bootstrap/Popper Tooltip Initialization...
+window.onload = function(){
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))	
+}
+
+//Loading animation for iframe.
+function loadingAnimationManagement(){
+IFRAME.setAttribute("class", "");	
+Search_Button.textContent = "Search";
+Search_Button.disabled = false;
+Search_Box.disabled = false;
+if(Iframe_Checkbox.checked){
+Search_Button.textContent = "Loaded!";
+}
+setTimeout(function(){
+Search_Button.textContent = "Search";
+}, 750);
+
+}
+
+//Iframe Mode Functionality
+function toggleIframeMode(){
+if(Iframe_Checkbox.checked){
+IFRAME.style.display = "inline-block";
+Iframe_Status.textContent = " Using Iframe Preview ";
+}else{
+IFRAME.style.display = "none";	
+Iframe_Status.textContent = " Use Iframe Preview ";
+}	
+}
+setInterval(toggleIframeMode, 50);
+
+//Perform Mod Search
+
+Search_Box.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+  runSearch();
+  }
+});
+
+function runSearch(){
+if(Search_Box.value.length > 0){
+if(Iframe_Checkbox.checked){
+Search_Button.textContent = "Loading...";
+Search_Button.disabled = true;
+Search_Box.disabled = true;
+IFRAME.setAttribute("class", "placeholder placeholder-wave");
+IFRAME.src = "https://modrinth.com/mods?q=" + Search_Box.value + "&v=" + GAME_VERSION.value + "&g=categories:" + MOD_LOADER.value.toLowerCase() + "&e=" + MOD_ENVIRONMENT.value.toLowerCase() + "&f=categories:" + MOD_CATEGORY.value.toLowerCase() + "&s=" + MOD_SORT.value.toLowerCase();
+}else{
+window.location.href = "https://modrinth.com/mods?q=" + Search_Box.value + "&v=" + GAME_VERSION.value + "&g=categories:" + MOD_LOADER.value.toLowerCase() + "&e=" + MOD_ENVIRONMENT.value.toLowerCase() + "&f=categories:" + MOD_CATEGORY.value.toLowerCase() + "&s=" + MOD_SORT.value.toLowerCase();	
+Search_Button.textContent = "Redirecting...";
+Search_Button.disabled = true;
+Search_Box.disabled = true;
+
+setTimeout(function(){
+Search_Button.textContent = "Search";
+Search_Button.disabled = false;
+Search_Box.disabled = false;    
+}, 1000);
+}	
+
+}else{
+Search_Box.placeholder = "You must input a mod name!";	
+Err_Sound.play();
+setTimeout(function(){
+Search_Box.placeholder = "Enter Minecraft mod name...";
+}, 1500);
+
+}
+
+}
+
+//Play the checkbox cliked sound.
+function playClickedSound(){
+Iframe_Checkbox_Clicked.play();	
+}
+	
+</script>

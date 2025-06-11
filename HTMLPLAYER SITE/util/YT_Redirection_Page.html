@@ -1,0 +1,89 @@
+<title>Youtube Query Redirect | htmlplayer.net</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="https://htmlplayer.net/images/Site_Icon.png">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+<div style="text-align:center">
+<h1>Youtube Query Redirect</h1>
+
+<p></p>
+
+<p style="color:gray; font-size:20">This page of <span data-bs-html="true" data-toggle="tooltip" data-bs-title="<i>Home!</i>" data-bs-placement="top" style="color:darkgray" onclick="window.location.href='https://htmlplayer.net'" onmouseover="this.style.fontStyle='italic', this.style.textDecoration='underline'" onmouseleave="this.style.fontStyle='normal', this.style.textDecoration='none'">htmlplayer.net</span>, allows you to search up a Youtube video, and redirect to results (based on query). Once you type in your query, press the <b data-toggle="tooltip" title="[Enter]" >enter</b> key on your keyboard (or the button on the side of the input box), to get redirected to Youtube.</p>
+</div>
+
+<hr>
+
+<p style="color:transparent; user-select:none">.</p>
+<p style="color:transparent; user-select:none">.</p>
+<p style="color:transparent; user-select:none">.</p>
+
+<div class="d-flex justify-content-center" style="filter: drop-shadow(10px 10px lightgray);">
+<input id="inputBox" placeholder="Enter Youtube Query..." class="form-control" style="width:50%; font-family: Source Code Pro;">    
+
+<span onclick="redirect()" data-toggle="tooltip" data-bs-html="true" title="Click this button to redirect to Youtube, with video results <u>based on your query</u>." id="theBtn" class="btn btn-primary">Submit & Redirect</span>
+</div>
+
+
+
+
+<script>
+var Query_Box = document.getElementById("inputBox");
+var Button = document.getElementById("theBtn");
+var Sound = new Audio("https://htmlplayer.net/sounds/UI_Sound_Click.mp3");
+
+
+Query_Box.addEventListener('keydown', function() {
+    if (event.key === 'Enter') { // Change to the key you want
+        redirect();
+    }
+});
+
+//Initialize Tooltips
+
+window.onload = function(){
+document.querySelectorAll('[data-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+}
+
+
+function redirect(){
+
+if(Query_Box.value.length > 0){
+
+window.open("https://www.youtube.com/results?search_query=" + Query_Box.value);
+Button.textContent = "Redirecting...";
+Query_Box.disabled = true;
+Query_Box.placeholder = "Redirecting to videos with '" + Query_Box.value + "'...";
+Query_Box.value = "";
+Sound.play();
+
+setTimeout(() => {
+Query_Box.disabled = false;
+Query_Box.placeholder = "Enter Youtube Query...";
+Button.textContent = "Submit & Redirect";   
+}, 2000);
+
+
+}else{
+ Query_Box.placeholder = "You must input your query in order to redirect!";
+ setTimeout(() => {
+ Query_Box.placeholder = "Enter Youtube Query...";
+
+
+ }, 1000);
+
+   
+}
+
+}
+
+</script>

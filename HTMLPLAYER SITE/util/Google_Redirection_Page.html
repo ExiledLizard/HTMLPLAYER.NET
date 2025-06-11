@@ -1,0 +1,68 @@
+<title>Google Search Redirection Page | htmlplayer.net</title>
+<link rel="icon" href="https://www.htmlplayer.net/images/Site_Icon.png">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<h1 style="text-align:center">Google Search Query Redirect</h1>
+<p style="color:gray; font-size:20; text-align:center">Welcome to the Google Search Query Redirect page of <span onclick="window.location.href='https://htmlplayer.net'" onmouseover="this.style.fontStyle='italic', this.style.textDecoration='underline'" onmouseout="this.style.fontStyle='normal', this.style.textDecoration='none'" style="color:lightgray" data-bs-toggle="tooltip" data-bs-html="true" title="Click to get redirected to the <b>home page</b> (<u>https://www.htmlplayer.net</u>).">htmlplayer.net</span>! What this page allows you to do, is search the Internet (with Google), with an input box. To use the input box, type in your query, and then press the <b data-bs-toggle="tooltip" title="[enter], [return]">Enter</b> key on your keyboard (or press a button on the side of the input box).</p>
+
+<hr>
+
+<p style="user-select:none; color:transparent">.</p>
+
+<div class="d-flex justify-content-center">
+<input id="searchBox" data-bs-toggle="tooltip" data-bs-html="true" title="Enter <u>anything</u> here." style="width:55%" class="form-control" type="search" placeholder="Enter Google Query...">  
+<span> <span style="color:transparent; user-select:none"> | </span> <button id="searchButton" onclick="Search()" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-html="true" title="Click to search Google (<u>based on your query</u>).">Search</button></span>
+</div>
+
+<script>
+
+//We define our element variables
+var Search_Box = document.getElementById("searchBox");
+var Search_Button = document.getElementById("searchButton");
+var Err = new Audio("https://www.htmlplayer.net/sounds/Error.mp3");
+
+window.onload = function(){
+//Initialize Bootstrap/Popper tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+}
+
+//Run the function with an event listener...
+Search_Box.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+  Search();
+  }
+});
+
+//Perform the search functionality
+function Search(){
+
+if(Search_Box.value.length > 0){
+window.location.href = "https://www.google.com/search?q=" + Search_Box.value;
+Search_Box.placeholder = "Redirecting...";
+Search_Box.value = "";
+Search_Button.innerHTML = "Redirecting <span class='spinner-border'></span>";
+setTimeout(function(){
+Search_Box.placeholder = "Enter Google Query...";
+Search_Button.innerHTML = "Search";    
+}, 1000);
+}else{
+ Err.play();
+ 
+ Search_Box.placeholder = "You must enter something to search!";
+  Search_Button.textContent = "Error";
+
+ setTimeout(function(){
+ Search_Box.placeholder = "Enter Google Query...";
+ Search_Button.textContent = "Search";
+ }, 1500);
+}
+
+}
+
+</script>

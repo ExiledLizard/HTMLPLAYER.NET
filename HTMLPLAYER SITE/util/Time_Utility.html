@@ -1,0 +1,204 @@
+<title>Time Utility Page | htmlplayer.net</title>
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+
+<div style="text-align:center;font-family:sans-serif">
+<h id="titleText" style="opacity:0;transition:1s; font-size:35;color:gray"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+</svg>Time Utility Page<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+</svg></h>    
+<p>Welcome to the Time Utility section/page of <a style="color:gray;transition:0.25s" data-toggle="tooltip" title="Click to go home!" href="https://htmlplayer.net" onclick="document.write('Redirecting to https://www.htmlplayer.net...')" onmouseover="this.style.fontStyle='italic', this.style.color='blue',this.style.fontSize='18'" onmouseleave="this.style.fontSize='16',this.style.fontStyle='normal',this.style.color='gray'">htmlplayer.net</a>! This page just includes a timer/stopwatch feature. Just input the time you want to count up/down to (in <i>seconds</i>) in the input box, and select a mode (<b>count-up</b>, or <b>count-down</b>), via a button.</p>
+</div>
+<hr>
+
+<div style="text-align:center;font-family:sans-serif">
+<progress value="" max="" id="timerBar" style="color:yellow"></progress>  <span id="timeDisplay"> - 0s</span>  
+<p></p>
+
+<div class="d-flex justify-content-center">
+<input class="form-control" style="width:30%" placeholder="Input time (in seconds)." type="number"  id="timeInput"> <div style="transtion: 0.5s" id="statusIndicator"  class="spinner-border text-info"></div>
+</div>
+
+
+
+
+<p></p>
+
+<button data-bs-placement="bottom" data-toggle="tooltip" onmouseleave="tooltip.hide()" title="Click to switch between the Timer & Stopwatch modes." class="btn btn-primary" onclick="Switch_Mode()" id="modeButton">Mode: Count Down</button><span> <span style="color:transparent;user-select:none">|</span> <button onmouseleave="tooltip.hide()"  data-bs-placement="bottom" data-toggle="tooltip" title="Click to start the Timer/Stopwatch." class="btn btn-success" id="startButton" onclick="startMain()">Start</button></span>
+</div>
+
+
+
+
+
+
+
+<script>
+var Stopwatch = 0;
+var Time = 0;
+var Started_Time = false;
+var Title = document.getElementById("titleText");
+var mainBar = document.getElementById("timerBar");
+var timeInput = document.getElementById("timeInput");
+var Mode_Button = document.getElementById("modeButton");
+var Start_Button = document.getElementById("startButton");
+var Time_Display = document.getElementById("timeDisplay");
+var Mode_Value = 0;
+var Still_Time_Indicator = document.getElementById("statusIndicator");
+
+
+
+window.onload = function(){
+Title.style.opacity = 1;
+Still_Time_Indicator.style.display = "none";
+document.querySelectorAll('[data-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+   
+}
+
+
+function Switch_Mode(){
+    Mode_Value = Mode_Value + 1;
+    if(Mode_Value > 1){
+        Mode_Value = 0;
+    }
+   
+   
+    if(Mode_Value === 0){
+        Start_Button.textContent = "Start";  
+        Mode_Button.textContent = "Mode: Count Down";
+        Time_Display.textContent = " - 0s";
+        timeInput.disabled = false;
+        timeInput.placeholder = "Input time (in seconds).";
+        Started_Time = false;
+   
+    }
+   
+   
+
+
+
+
+
+   
+    if(Mode_Value === 1){
+        Started_Time = false;
+        Time = 0;
+        timeInput.disabled = true;
+        Mode_Button.textContent = "Mode: Stopwatch";
+        timeInput.value = null;
+        timeInput.placeholder = "Disabled.";
+        mainBar.value = 0;  
+        Time_Display.textContent = " - " + null;
+
+    }
+   
+}
+
+
+
+
+
+timeInput.addEventListener('keydown', function() {
+    // Check if the pressed key is "Enter"
+    if (event.key === 'Enter') {
+        startMain();
+        
+    }
+});
+
+function startMain(){
+   
+    if(Mode_Value === 1){
+
+Stopwatch = Stopwatch + 1;
+    
+   if(Stopwatch > 1){
+    Stopwatch = 0;
+    Start_Button.textContent = "Start";
+    Time_Display.textContent = " - " + Time + "s | Counting Up (Stopped)"
+    }
+}
+
+    Started_Time = true;
+
+    if(Mode_Value === 0){  
+    Started_Time = true;
+    mainBar.value = timeInput.value;
+    mainBar.max = timeInput.value;
+    timeInput.value = "";
+}
+
+}
+
+
+
+function runStopwatch(){
+if(Mode_Value === 1){
+
+
+
+Still_Time_Indicator.style.display = "none";
+
+if(Started_Time === true && Stopwatch === 1){
+Time = Time + 0.25;
+Time_Display.textContent = " - " + Time + "s | Counting Up"
+Start_Button.textContent = "Stop";
+}
+
+}
+
+}
+
+setInterval(runStopwatch, 250);
+
+
+function runCountDown(){
+
+if(Started_Time === true && Mode_Value === 0){
+
+
+
+mainBar.value = mainBar.value -1;
+Time_Display.textContent = " - " + mainBar.value + "s"
+ 
+   
+if(mainBar.value === 0){
+Started_Time = false;
+Time_Display.textContent = " - Time's up!"
+Still_Time_Indicator.style.display = "none";
+alert("The time is up for your count-down!")
+   
+}else
+
+if(mainBar.value > 0){
+Still_Time_Indicator.style.display = "inline-block";
+}
+ 
+ 
+   
+}
+
+
+
+
+
+
+}
+setInterval(runCountDown, 1000);
+
+</script>

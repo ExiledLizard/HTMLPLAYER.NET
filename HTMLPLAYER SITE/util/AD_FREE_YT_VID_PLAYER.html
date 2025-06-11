@@ -1,0 +1,106 @@
+<link rel="icon" href="https://htmlplayer.net/images/Site_Icon.png">
+<title>AD-FREE Youtube Video Player | htmlplayer.net</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<h1 style="text-align: center;">AD-FREE Youtube Video Player</h1>
+
+<p style="color: gray;text-align: center;font-size: 20;">Hello, and welcome to the AD-FREE Youtube Video Player page of <span style="color:lightgray;" onmouseover="this.style.textDecoration='underline', this.style.fontStyle='italic'" onmouseleave="this.style.textDecoration='none', this.style.fontStyle='normal'" onclick="window.location.href='https://htmlplayer.net', alert('Redirecting to home page...')" data-bs-toggle="tooltip" data-bs-html="true" title="Click to <b>redirect</b> home (<u>https://htmlplayer.net</u>)!">htmlplayer.net</span>! What this page allows you to do, is to watch youtube videos without advertisements! To use this page, enter a link from any Youtube video in an input box below, then press the <b data-bs-toggle="tooltip" title="[enter], [return]">enter</b> key on your keyboard (or press a button on the side of the input box) to load it in a small player window (has options to enter full-screen, e.c.t).</p>
+
+<hr>
+
+<p style="color: transparent;user-select: none;">.</p>
+
+<div class="d-flex justify-content-center">
+<input id="ytURLInput" type="url" class="form-control" data-bs-toggle="tooltip" data-bs-html="true" title="Please enter a <b>valid</b> Youtube video link..." style="width: 45%; height:40" placeholder="Enter a youtube video link here..."><span style="color: transparent; user-select: none;">|||</span><span><button id="loadVidBtn" onclick="loadVideo()" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-html="true" title="Click to <b>load</b> the Youtube video from the link you have entered in the input box! <b>NOTE</b>: You may also press the <b>[enter]</b> key on your keyboard to load it as well, right after you are done typing/pasting.">Load Video</button></span>
+</div>
+
+
+<p style="color: transparent;user-select: none;">.</p>
+<p style="color: transparent;user-select: none;">.</p>
+
+<div style="text-align: center; margin-top: 20px;">
+<iframe id="ytPlayer" style="border-style: solid; border-radius: 7px;border-width: 1px; width:50%;height:30%; opacity: 0;">
+</iframe> 
+
+<p style="color: transparent;user-select: none;">.</p>
+<button disabled style="opacity: 0;" id="fullBtn" class="btn btn-info" data-bs-toggle="tooltip" data-bs-html="true" title="Click this button to <b>enter full-screen</b> mode for the Youtube video player." onclick="fullScreenIt()">Fullscreen Video <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+  <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"/>
+</svg></button><span style="color: transparent; user-select: none;">|||||||||</span><button disabled style="opacity: 0;" id="openNewTabBtn" data-bs-toggle="tooltip" onclick="openInNewTab()" data-bs-html="true" title="Click this button to <u>open</u> the currently loaded video in a <b>new tab</b>." class="btn btn-secondary">Open in New Tab <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z"/>
+</svg></button>  
+</div>
+
+<script>
+ //Bootstrap Tooltip Initialization
+window.onload = function(){
+document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+}
+
+//Element Variables...
+var URL_Input = document.getElementById("ytURLInput");
+var Load_Button = document.getElementById("loadVidBtn");
+var Player_Frame = document.getElementById("ytPlayer");
+var Fullscreen_Button = document.getElementById("fullBtn");
+var New_Tab_Button = document.getElementById("openNewTabBtn");
+
+//Sound Vars
+var Err = new Audio("https://htmlplayer.net/sounds/Error.mp3");
+var Done_Loading = new Audio("https://htmlplayer.net/sounds/Kill_Sound.mp3");
+
+function loadVideo() {
+ if(URL_Input.value.length > 0){
+ URL_Input.disabled = true;
+ Load_Button.disabled = true;
+ Load_Button.textContent = "Loading Video...";
+ Load_Button.setAttribute("class", "btn btn-warning");
+ Player_Frame.src = URL_Input.value.replace("watch?v=", "embed/");
+ Fullscreen_Button.style.opacity = 1;
+ New_Tab_Button.style.opacity = 1;
+ Fullscreen_Button.disabled = false;
+ New_Tab_Button.disabled = false;
+ }else{
+    Err.play();
+    Load_Button.textContent = "Error!";
+    Load_Button.setAttribute("class", "btn btn-danger");
+    URL_Input.placeholder = "You must enter a URL to a Youtube video!";
+    setTimeout(function() {
+    Load_Button.textContent = "Load Video";
+    Load_Button.setAttribute("class", "btn btn-primary");
+    URL_Input.placeholder = "Enter a youtube video link here...";
+    }, 1000);
+ }  
+}  
+
+Player_Frame.onload = function() {
+Player_Frame.style.opacity = 1;
+Load_Button.textContent = "Video Loaded!";
+Load_Button.setAttribute("class", "btn btn-success");
+Done_Loading.play();
+
+setTimeout(function() {   
+URL_Input.disabled = false;
+Load_Button.disabled = false;
+Load_Button.textContent = "Load Video";
+Load_Button.setAttribute("class", "btn btn-primary");
+}, 1000);
+}
+
+function fullScreenIt() {
+Player_Frame.requestFullscreen();
+}
+
+function openInNewTab() {
+window.open(Player_Frame.src, 'No AD - YT Video');
+}
+
+URL_Input.addEventListener("keydown", function(event) {
+if(event.key == "Enter"){
+  loadVideo();
+}
+});
+</script>
