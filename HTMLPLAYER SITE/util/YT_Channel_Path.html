@@ -57,6 +57,15 @@ var Notification_Body = document.getElementById("notifBody");
 var tooltip = bootstrap.Tooltip.getInstance('#link') // Returns a Bootstrap tooltip instance
 
 
+//Add event listeners...
+Search_Box.addEventListener("keyup", function(event) {
+if (event.key === "Enter") {
+runSearch();
+}
+});
+
+
+
 function runSearch(){
 Channel_Link.style.fontStyle = "normal";    
 if(Search_Box.value.length > 0){
